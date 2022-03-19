@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NormalComponent } from './feature/normal.component';
+import { NormalChildComponent } from './feature/normal-child.component';
 
 const routes: Routes = [
   { path: 'normal', component: NormalComponent },
@@ -16,10 +17,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, NormalComponent],
-  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
-})],
+  declarations: [AppComponent, NormalComponent, NormalChildComponent],
+  imports: [
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabledBlocking',
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
