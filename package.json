@@ -2,15 +2,12 @@
   "name": "example",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "dev:ssr": "ng run example:serve-ssr",
-    "serve:ssr": "node dist/example/server/main.js",
-    "build:ssr": "ng build && ng run example:server",
-    "prerender": "ng run example:prerender"
+    "start": "npm run build && npm run serve:ssr",
+    "start:ng": "npm run build:browser && ng serve",
+    "build": "npm run build:browser && npm run build:server",
+    "build:browser": "ng build",
+    "build:server": "ng run example:server",
+    "serve:ssr": "node dist/example/server/main.js"
   },
   "private": true,
   "dependencies": {
