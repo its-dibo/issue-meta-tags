@@ -17,7 +17,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, NormalComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+})],
   providers: [],
   bootstrap: [AppComponent],
 })
