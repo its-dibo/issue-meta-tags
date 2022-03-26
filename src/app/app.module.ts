@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NormalComponent } from './feature/normal.component';
 import { NormalChildComponent } from './feature/normal-child.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'normal', component: NormalComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       initialNavigation: 'enabledBlocking',
     }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

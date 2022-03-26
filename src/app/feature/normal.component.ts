@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'normal-comp',
-  template: '<normal-child-comp></normal-child-comp>',
+  template: '<normal-child-comp *ngIf="ready"></normal-child-comp>',
 })
 export class NormalComponent {
-  constructor(public titleService: Title) {
-    this.titleService.setTitle('normal#1');
+  ready=false
+  constructor(private httpClient:HttpClient) {
+     this.httpClient.get('https://jsonplaceholder.typicode.com/todos/1').subscribe(()=>{
+       this.ready=true
+     })
   }
 }

@@ -2,12 +2,12 @@
   "name": "example",
   "version": "0.0.0",
   "scripts": {
-    "start": "npm run build && npm run serve:ssr",
+    "start": "npm run build && npm run serve",
     "start:ng": "npm run build:browser && ng serve",
     "build": "npm run build:browser && npm run build:server",
     "build:browser": "ng build",
     "build:server": "ng run example:server",
-    "serve:ssr": "node dist/example/server/main.js"
+    "serve": "node dist/example/server/main.js"
   },
   "private": true,
   "dependencies": {

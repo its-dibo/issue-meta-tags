@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'lazy-comp',
-  template: '<lazy-child-comp></lazy-child-comp>',
+  template: '<lazy-child-comp *ngIf="ready"></lazy-child-comp>',
 })
 export class LazyComponent {
-  constructor(public titleService: Title) {
-    this.titleService.setTitle('lazy#1');
+  ready=false
+  constructor(private httpClient:HttpClient) {
+     this.httpClient.get('https://jsonplaceholder.typicode.com/todos/1').subscribe(()=>{
+       this.ready=true
+     })
   }
 }

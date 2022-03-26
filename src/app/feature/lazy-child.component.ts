@@ -1,15 +1,12 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'lazy-child-comp',
   template: 'lazy child component works',
 })
 export class LazyChildComponent {
-  constructor(public titleService: Title) {}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log({ changes });
-    this.titleService.setTitle('child');
+  constructor() {
+    console.log('===> lazy-child: constructor')
   }
+
 }
